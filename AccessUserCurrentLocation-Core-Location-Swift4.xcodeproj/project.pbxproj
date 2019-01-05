@@ -12,6 +12,7 @@
 		67EFEC6F21E0A2C900AF6370 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67EFEC6D21E0A2C900AF6370 /* Main.storyboard */; };
 		67EFEC7121E0A2CA00AF6370 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67EFEC7021E0A2CA00AF6370 /* Assets.xcassets */; };
 		67EFEC7421E0A2CA00AF6370 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67EFEC7221E0A2CA00AF6370 /* LaunchScreen.storyboard */; };
+		67EFEC7D21E0A2FF00AF6370 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EFEC7C21E0A2FF00AF6370 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		67EFEC7021E0A2CA00AF6370 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67EFEC7321E0A2CA00AF6370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67EFEC7521E0A2CA00AF6370 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67EFEC7C21E0A2FF00AF6370 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67EFEC7D21E0A2FF00AF6370 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				67EFEC6821E0A2C900AF6370 /* AccessUserCurrentLocation-Core-Location-Swift4 */,
 				67EFEC6721E0A2C900AF6370 /* Products */,
+				67EFEC7B21E0A2FE00AF6370 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +66,14 @@
 				67EFEC7521E0A2CA00AF6370 /* Info.plist */,
 			);
 			path = "AccessUserCurrentLocation-Core-Location-Swift4";
+			sourceTree = "<group>";
+		};
+		67EFEC7B21E0A2FE00AF6370 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67EFEC7C21E0A2FF00AF6370 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
