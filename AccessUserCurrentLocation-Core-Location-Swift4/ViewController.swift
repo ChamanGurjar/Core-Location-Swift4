@@ -34,7 +34,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0]
         
+        getAddressFromLocation(userLocation)
+        
         showUserCurrentLocationOnMap(userLocation)
+    }
+    
+    private func getAddressFromLocation(_ userLocation: CLLocation) {
+        CLGeocoder().reverseGeocodeLocation(userLocation) { (placeMarks, error) in
+            if error != nil {
+                print("Error in getting Adreess : \(error!)")
+            } else {
+                if let placeMark  = placeMarks?[0] {
+                    print(placeMark)
+                }
+            }
+        }
     }
     
     private func showUserCurrentLocationOnMap(_ userLocation: CLLocation) {
