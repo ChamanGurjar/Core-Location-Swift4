@@ -8,8 +8,11 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    @IBOutlet weak var map: MKMapView!
     
     private let locationManager =  CLLocationManager()
     
@@ -30,9 +33,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0]
-        print(userLocation)
+        
+        showUserCurrentLocationOnMap(userLocation)
     }
     
-    
+    private func showUserCurrentLocationOnMap(_ userLocation: CLLocation) {
+        let lat = userLocation.coordinate.latitude
+        let long = userLocation.coordinate.longitude
+        
+        let letDelta: CLLocationDegrees = 0.05
+        let longDelta: CLLocationDegrees = 0.05
+        
+        let span = MKCoordinateSpan(latitudeDelta: letDelta, longitudeDelta: longDelta)
+        let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let region = MKCoordinateRegion(center: coordinates, span: span)
+        map.setRegion(region, animated: true)
+    }
 }
 
