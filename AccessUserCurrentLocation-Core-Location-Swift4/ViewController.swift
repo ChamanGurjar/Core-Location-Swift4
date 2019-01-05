@@ -22,7 +22,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         configureLocationManager()
         
         locationManager.startUpdatingLocation()
-        
     }
     
     private func configureLocationManager() {
@@ -39,6 +38,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         showUserCurrentLocationOnMap(userLocation)
     }
     
+    /** CLGeocoder -> used to get Address from CLLocation
+     */
     private func getAddressFromLocation(_ userLocation: CLLocation) {
         CLGeocoder().reverseGeocodeLocation(userLocation) { (placeMarks, error) in
             if error != nil {
@@ -46,6 +47,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             } else {
                 if let placeMark  = placeMarks?[0] {
                     print(placeMark)
+                    
+                    var subThoroughfare = ""
+                    if placeMark.subThoroughfare != nil {
+                        subThoroughfare = placeMark.subThoroughfare!
+                    }
+                    
+                    var thoroughfare = ""
+                    if placeMark.thoroughfare != nil {
+                        thoroughfare = placeMark.thoroughfare!
+                    }
+                    
+                    var subLocality = ""
+                    if placeMark.subLocality != nil {
+                        subLocality = placeMark.subLocality!
+                    }
+                    
+                    var subAdministrativeArea = ""
+                    if placeMark.subAdministrativeArea != nil {
+                        subAdministrativeArea = placeMark.subAdministrativeArea!
+                    }
+                    
+                    var postalCode = ""
+                    if placeMark.postalCode != nil {
+                        postalCode = placeMark.postalCode!
+                    }
+                    
+                    var country = ""
+                    if placeMark.country != nil {
+                        country = placeMark.country!
+                    }
+                    
+                    print(subThoroughfare + " " + thoroughfare + "\n" + subLocality + "\n" + subAdministrativeArea + "\n" + postalCode + "\n" + country)
                 }
             }
         }
@@ -74,5 +107,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         map.addAnnotation(annotation)
     }
+    
 }
 
