@@ -48,6 +48,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let coordinates = CLLocationCoordinate2D(latitude: lat, longitude: long)
         let region = MKCoordinateRegion(center: coordinates, span: span)
         map.setRegion(region, animated: true)
+        
+        showAnnotationOnUserCurrentLocation(coordinates)
+    }
+    
+    private func showAnnotationOnUserCurrentLocation(_ coordinates: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.title = "Currently you are here!"
+        annotation.subtitle = "\(NSDate())"
+        annotation.coordinate = coordinates
+        
+        map.addAnnotation(annotation)
     }
 }
 
